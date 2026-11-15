@@ -1,4 +1,4 @@
-// Copyright © 2024 Ory Corp
+// Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
 // This file contains logic which is used when running this application as part of the
@@ -7,12 +7,11 @@
 
 import { u  } from "../../config"
 
-
 import {
   OAuth2ConsentRequest,
   AcceptOAuth2ConsentRequestSession,
   OAuth2LoginRequest,
-} from "@ory/client"
+} from "@ory/hydra-client-fetch"
 
 export const oidcConformityMaybeFakeAcr = (
   request: OAuth2LoginRequest,

@@ -1,9 +1,7 @@
-// Copyright © 2024 Ory Corp
+// Copyright © 2025 Ory Corp
 // SPDX-License-Identifier: Apache-2.0
 
-import { Configuration, V0alpha2Api } from "@ory/client"
-// import fs from 'node:fs';
-//const fs = require('node:fs');
+import { Configuration, OAuth2Api } from "@ory/hydra-client-fetch"
 const fs = require('fs');
 
 export const u = fs.readFileSync(process.env.mount_path+'/username', 'utf8');
@@ -16,11 +14,11 @@ if (process.env.MOCK_TLS_TERMINATION) {
 }
 
 const configuration = new Configuration({
-  basePath: process.env.HYDRA_ADMIN_URL,
+  // basePath: process.env.HYDRA_ADMIN_URL,
   accessToken: process.env.ORY_API_KEY || process.env.ORY_PAT,
-  baseOptions,
+  headers: baseOptions.headers,
 })
 
-const hydraAdmin = new V0alpha2Api(configuration)
+const hydraAdmin = new OAuth2Api(configuration)
 
 export { hydraAdmin }
