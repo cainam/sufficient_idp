@@ -14,7 +14,7 @@ if (process.env.MOCK_TLS_TERMINATION) {
 }
 
 const configuration = new Configuration({
-  // basePath: process.env.HYDRA_ADMIN_URL,
+  basePath: process.env.HYDRA_ADMIN_URL,
   accessToken: process.env.ORY_API_KEY || process.env.ORY_PAT,
   headers: baseOptions.headers,
 })
